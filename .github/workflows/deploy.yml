@@ -25,7 +25,9 @@ jobs:
           git config --global user.email "crisdamencast@gmail.com"
           git config --global user.name "CrisMen2610"
 
+      - name: Set remote URL with token
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
       - name: Deploy to GitHub Pages
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
