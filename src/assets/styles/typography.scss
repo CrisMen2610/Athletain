@@ -1,11 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Yanone+Kaffeesatz:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap");
 
 .navTypo {
   color: #070c11;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
-  font-size: 13.284px;
+  font-size: 0.83rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 23.911px; /* 180% */
+  line-height: 1.494rem;
+  text-transform: uppercase;
+}
+
+.bannerTitle {
+  color: #070c11;
+  font-family: "Yanone Kaffeesatz";
+  font-size: 6.25rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 6rem; /* 96% */
+  letter-spacing: 0.0042rem;
+  text-transform: uppercase;
+}
+
+.bannerSubtitle {
+  color: #070c11;
+  font-family: "Yanone Kaffeesatz";
+  font-size: 6.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: 0.042rem;
+  text-transform: uppercase;
+}
+
+.bannerDescription {
+  color: #070c11;
+  font-family: "Poppins";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 133.333% */
+}
+
+.buttonText {
+  color: #fff;
+  text-align: center;
+  font-family: "Oswald";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 94.885% */
+  letter-spacing: 0.071;
   text-transform: uppercase;
 }
