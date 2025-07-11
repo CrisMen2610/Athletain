@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+  height: 40px;
+}
+
+.linkActive {
+  text-decoration: none;
+  color: #222 !important;
+  font-weight: 500 !important;
+  transition: color 0.2s;
+}
+
+.link {
+  text-decoration: none;
+  color: #a4a4a4;
+  font-weight: 500;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #222;
+  }
+}
