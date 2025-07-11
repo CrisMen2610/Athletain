@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/Athletain/static/css/main.dd8a6da9.css",
-    "main.js": "/Athletain/static/js/main.fc317dcb.js",
+    "main.css": "/Athletain/static/css/main.67b5a15e.css",
+    "main.js": "/Athletain/static/js/main.bbbbbb47.js",
+    "static/media/karts.png": "/Athletain/static/media/karts.3ec4091e960accd4a842.png",
     "static/media/athletain_logo.svg": "/Athletain/static/media/athletain_logo.7ac83a2618297531922412a02ba58178.svg",
+    "static/media/sports-icon.svg": "/Athletain/static/media/sports-icon.57f3dba041283ca96c7c8cce22f1846e.svg",
     "index.html": "/Athletain/index.html",
-    "main.dd8a6da9.css.map": "/Athletain/static/css/main.dd8a6da9.css.map",
-    "main.fc317dcb.js.map": "/Athletain/static/js/main.fc317dcb.js.map"
+    "main.67b5a15e.css.map": "/Athletain/static/css/main.67b5a15e.css.map",
+    "main.bbbbbb47.js.map": "/Athletain/static/js/main.bbbbbb47.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd8a6da9.css",
-    "static/js/main.fc317dcb.js"
+    "static/css/main.67b5a15e.css",
+    "static/js/main.bbbbbb47.js"
   ]
 }
