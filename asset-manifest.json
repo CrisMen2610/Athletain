@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/Athletain/static/css/main.c20aeb91.css",
-    "main.js": "/Athletain/static/js/main.12a76238.js",
+    "main.css": "/Athletain/static/css/main.572b60fe.css",
+    "main.js": "/Athletain/static/js/main.2969941b.js",
     "static/media/2nd-hero.png": "/Athletain/static/media/2nd-hero.80c0f6475a292bfdb5c6.png",
     "static/media/banner2.webp": "/Athletain/static/media/banner2.142b66d9188f3498b3f4.webp",
     "static/media/karts.png": "/Athletain/static/media/karts.3ec4091e960accd4a842.png",
+    "static/media/banner_talent.webp": "/Athletain/static/media/banner_talent.fb9f35409d8d504de3a4.webp",
     "static/media/hero2.webp": "/Athletain/static/media/hero2.5a34d383b8e5b4b37d1a.webp",
     "static/media/cta-bg.webp": "/Athletain/static/media/cta-bg.9315b6b89e59093fda17.webp",
     "static/media/ctaBg2.webp": "/Athletain/static/media/ctaBg2.2301c30c2459a882aced.webp",
     "static/media/smallBanner.webp": "/Athletain/static/media/smallBanner.0fa165a57944ce083d1f.webp",
+    "static/media/gallery-banner.webp": "/Athletain/static/media/gallery-banner.860fd8b79d8f37f8a0e2.webp",
     "static/media/alt-logo.svg": "/Athletain/static/media/alt-logo.c5d7193d80a34d932cd9243da6601f01.svg",
     "static/media/athletain_logo.svg": "/Athletain/static/media/athletain_logo.7ac83a2618297531922412a02ba58178.svg",
     "static/media/icomoon.svg": "/Athletain/static/media/icomoon.c89b3a8a6cad8c9c8b9d.svg",
     "static/media/sports-icon.svg": "/Athletain/static/media/sports-icon.57f3dba041283ca96c7c8cce22f1846e.svg",
     "static/media/icomoon.ttf": "/Athletain/static/media/icomoon.d9a974419160030c4498.ttf",
     "index.html": "/Athletain/index.html",
-    "main.c20aeb91.css.map": "/Athletain/static/css/main.c20aeb91.css.map",
-    "main.12a76238.js.map": "/Athletain/static/js/main.12a76238.js.map"
+    "main.572b60fe.css.map": "/Athletain/static/css/main.572b60fe.css.map",
+    "main.2969941b.js.map": "/Athletain/static/js/main.2969941b.js.map"
   },
   "entrypoints": [
-    "static/css/main.c20aeb91.css",
-    "static/js/main.12a76238.js"
+    "static/css/main.572b60fe.css",
+    "static/js/main.2969941b.js"
   ]
 }
