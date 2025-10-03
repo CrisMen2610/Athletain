@@ -8,7 +8,7 @@ type NavLinkType = {
 };
 
 const navLinks: NavLinkType[] = [
-  { label: "Inicio", to: "/Athletain" },
+  { label: "Inicio", to: "/" },
   { label: "Sobre Nosotros", to: "/sobre_nosotros" },
   { label: "Servicios", to: "/servicios" },
   { label: "Exposición de Talento", to: "/exposición_de_talento" },
