@@ -5,8 +5,6 @@
   padding-bottom: 0;
   flex-direction: column;
   align-items: flex-start;
-
-  gap: 5rem;
   align-self: stretch;
 }
 
@@ -22,6 +20,11 @@
   width: 39.375rem;
 }
 
+.aboutUs_titles {
+  width: 31.6875rem;
+  padding: 6.25rem 0;
+}
+
 .grid {
   border-top: 1px solid var(--Colors-Gray, #a4a4a4);
   width: 100%;
@@ -35,6 +38,18 @@
   }
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
+  }
+}
+
+.aboutUs_contents {
+  grid-template-columns: repeat(2, 1fr);
+  border: none;
+
+  .card {
+    border: none;
+    p {
+      width: 33rem;
+    }
   }
 }
 

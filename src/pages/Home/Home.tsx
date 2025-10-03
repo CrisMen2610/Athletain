@@ -25,7 +25,7 @@ const Home: React.FC = () => (
       buttonText={homeContent.banner.buttonText}
       type={typePage}
     />
-    <Services services={homeServices} />
+    <Services services={homeServices} type={typePage} />
     <CtaSection ctaSection={homeCta} />
     <HeroSection
       heroSection={

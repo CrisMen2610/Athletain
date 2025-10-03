@@ -10,6 +10,7 @@ const Banner: React.FC<BannerProps> = ({
   subtitle,
   description,
   buttonText,
+  bgImage,
   type,
 }) => {
   let content: React.ReactNode;
@@ -36,6 +37,26 @@ const Banner: React.FC<BannerProps> = ({
             </button>
           </div>
           <img className={styles.home_banner_image} src={karts} alt="" />
+        </>
+      );
+      break;
+    case PAGES.ABOUT_US:
+      content = (
+        <>
+          <div className={styles.aboutUs_banner}>
+            <h1 className={`bannerTitle ${styles.aboutUs_banner_title}`}>
+              {title}
+            </h1>
+            <h2 className={`bannerSubtitle ${styles.aboutUs_banner_subtitle}`}>
+              {subtitle}
+            </h2>
+            <p
+              className={`bannerDescription ${styles.aboutUs_banner_description}`}
+            >
+              {description}
+            </p>
+          </div>
+          <img className={styles.aboutUs_banner_image} src={bgImage} alt="" />
         </>
       );
       break;

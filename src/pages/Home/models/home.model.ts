@@ -10,10 +10,27 @@ export interface homeContent {
       subtitle: string;
       description: string;
       buttonText: string;
+      hasButton?: boolean;
     };
     services: Service[];
     cta: CtaProps;
     hero?: HeroProps;
-    // testimonials: Testimonial[];
+  };
+}
+
+export interface aboutUsContent {
+  AboutUs: {
+    banner: {
+      title: string;
+      subtitle: string;
+      description: string;
+      buttonText?: string;
+      hasButton?: boolean;
+      bgImage?: string;
+      type?: string;
+    };
+    services: Service[];
+    cta: CtaProps;
+    hero?: HeroProps;
   };
 }

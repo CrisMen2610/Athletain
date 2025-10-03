@@ -6,6 +6,7 @@
   position: relative;
 }
 
+.aboutUs_banner,
 .home_banner {
   display: flex;
   width: 42.125rem;
@@ -28,10 +29,24 @@
   }
 }
 
+.aboutUs_banner {
+  width: 100%;
+  &_description {
+    width: 38.625rem;
+  }
+}
+
 .home_banner_image {
   width: 60rem;
   flex-shrink: 0;
   position: absolute;
   right: 0rem;
   bottom: 1rem;
+}
+
+.aboutUs_banner_image {
+  position: absolute;
+  right: 0rem;
+  top: -2rem;
+  width: 45rem;
 }

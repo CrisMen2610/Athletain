@@ -4,6 +4,8 @@ export interface BannerProps {
   title: string;
   subtitle: string;
   description: string;
-  buttonText: string;
+  buttonText?: string;
+  hasButton?: boolean;
+  bgImage?: string;
   type?: PAGES;
 }

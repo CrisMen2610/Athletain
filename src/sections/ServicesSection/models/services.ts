@@ -1,4 +1,5 @@
 export interface Service {
-  iconClass: string;
+  iconClass?: string;
   title: string;
+  description?: string;
 }

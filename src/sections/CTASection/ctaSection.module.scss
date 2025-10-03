@@ -29,6 +29,27 @@
   text-align: center;
 }
 
+.aboutUs_title {
+  width: 50%;
+}
+
+.aboutUs_inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutUs_texts {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2rem;
+  padding: 1rem;
+  border-left: 1px solid #fff;
+  margin-left: 2rem;
+}
+
 .text {
   margin-top: 1.5rem;
   width: 35.06656rem;
