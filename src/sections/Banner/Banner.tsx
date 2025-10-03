@@ -36,7 +36,11 @@ const Banner: React.FC<BannerProps> = ({
               <SportIcon />
             </button>
           </div>
-          <img className={styles.home_banner_image} src={karts} alt="" />
+          <img
+            className={styles.home_banner_image}
+            src={bgImage || karts}
+            alt=""
+          />
         </>
       );
       break;
@@ -57,6 +61,41 @@ const Banner: React.FC<BannerProps> = ({
             </p>
           </div>
           <img className={styles.aboutUs_banner_image} src={bgImage} alt="" />
+        </>
+      );
+      break;
+
+    case PAGES.TALENT_GALLERY:
+      content = (
+        <>
+          <div
+            className={`${styles.home_banner} ${styles.talent_gallery_banner}`}
+          >
+            <h1
+              className={`bannerTitle ${styles.home_banner_title} ${styles.talent_gallery_title}`}
+            >
+              {title}
+            </h1>
+            <h2
+              className={`bannerSubtitle ${styles.home_banner_subtitle} ${styles.talent_gallery_subtitle}`}
+            >
+              {subtitle}
+            </h2>
+            <p
+              className={`bannerDescription ${styles.talent_gallery_banner_description}`}
+            >
+              {description}
+            </p>
+            <button className={`buttonText ${styles.home_banner_button}`}>
+              {buttonText}
+              <SportIcon />
+            </button>
+          </div>
+          <img
+            className={styles.talent_gallery_image}
+            src={bgImage || karts}
+            alt=""
+          />
         </>
       );
       break;

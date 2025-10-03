@@ -1,4 +1,3 @@
-// src/hooks/useFakePeople/useFakePeople.ts (o useAthletePeople.ts)
 import { useEffect, useMemo, useState } from "react";
 
 export type Gender = "male" | "female" | "any";
@@ -17,11 +16,15 @@ type Opts = {
   sport?: string;
   seed?: string;
   apiKey?: string;
-  latamOnly?: boolean; // <= NUEVO
-  countries?: string[]; // opcional: restringir a un subconjunto (p.ej. ["Colombia","Argentina"])
+  latamOnly?: boolean;
+  countries?: string[];
 };
 
-/* ---------- util: PRNG determinista para reproducibilidad ---------- */
+function hashIdx(str: string, mod: number) {
+  const [a, b, c, d] = cyrb128(str);
+  return ((a ^ b ^ c ^ d) >>> 0) % Math.max(1, mod);
+}
+
 function cyrb128(str: string) {
   let h1 = 1779033703,
     h2 = 3144134277,
@@ -53,7 +56,6 @@ function pick<T>(rng: () => number, arr: T[]) {
   return arr[Math.floor(rng() * arr.length)];
 }
 
-/* ---------- catálogos LATAM ---------- */
 const LATAM_COUNTRIES = [
   "Argentina",
   "Bolivia",
@@ -155,7 +157,6 @@ const LAST_PT = [
   "Rocha",
 ];
 
-/* ---------- leer API key (CRA/Vite) ---------- */
 const CRA_PEXELS_KEY: string | undefined = process.env.REACT_APP_PEXELS_KEY;
 // Vite opcional
 const VITE_PEXELS_KEY: string | undefined =
@@ -180,10 +181,9 @@ export function useAthletePeople(opts: Opts = {}) {
   const [loading, setLoading] = useState(true);
   const PEXELS_KEY = resolvePexelsKey(apiKey);
 
-  // URL RandomUser (solo si no es latamOnly)
   const randomUserUrl = useMemo(() => {
     if (latamOnly) return "";
-    const nat = ["BR", "ES", "US"].join(","); // RandomUser no soporta más países LATAM
+    const nat = ["BR", "ES", "US"].join(",");
     const g = gender !== "any" ? `&gender=${gender}` : "";
     return `https://randomuser.me/api/?results=${count}&nat=${nat}${g}&seed=${seed}`;
   }, [count, gender, seed, latamOnly]);
@@ -194,7 +194,6 @@ export function useAthletePeople(opts: Opts = {}) {
     async function run() {
       setLoading(true);
 
-      /* ---------- A) Base de personas ---------- */
       let base: Array<{
         name: string;
         country: string;
@@ -203,7 +202,6 @@ export function useAthletePeople(opts: Opts = {}) {
       }> = [];
 
       if (latamOnly) {
-        // Generación determinista ES/PT con países LATAM
         const [a, b, c, d] = cyrb128(seed);
         const rng = mulberry32(a ^ b ^ c ^ d);
 
@@ -213,7 +211,6 @@ export function useAthletePeople(opts: Opts = {}) {
           const g: Gender =
             gender === "any" ? (rng() > 0.5 ? "male" : "female") : gender;
 
-          // elegir “idioma” en función del país (Brasil → pt, resto → es)
           const country = pick(rng, poolCountries);
           const isPT = country === "Brasil";
 
@@ -231,7 +228,6 @@ export function useAthletePeople(opts: Opts = {}) {
           });
         }
       } else {
-        // RandomUser: nombres y países limitados (BR/ES/US)
         const ru = await fetch(randomUserUrl).then((r) => r.json());
         base = ru.results.map((u: any, i: number) => ({
           name: `${u.name.first} ${u.name.last}`,
@@ -241,52 +237,75 @@ export function useAthletePeople(opts: Opts = {}) {
         }));
       }
 
-      /* ---------- B) Fotos deportivas (Pexels) / fallback SVG ---------- */
-      let photos: { one: string; two: string }[] = [];
-      if (PEXELS_KEY) {
+      type PhotoPair = { one: string; two: string };
+
+      const per = Math.min(80, Math.max(10, count + 12));
+
+      async function fetchPexels(q: string): Promise<PhotoPair[]> {
+        if (!PEXELS_KEY) return [];
+        const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(
+          q
+        )}&orientation=portrait&per_page=${per}&size=large`;
         try {
-          const gWords =
-            gender === "male"
-              ? "latino male man"
-              : gender === "female"
-              ? "latina female woman"
-              : "latino latina";
-          const q = `${sport} athlete portrait ${gWords} south american`.trim();
-          const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(
-            q
-          )}&orientation=portrait&per_page=${
-            Math.floor(Math.random() * 16) + 1
-          }&size=large`;
           const pex = await fetch(url, {
             headers: { Authorization: PEXELS_KEY },
           }).then((r) => r.json());
-          photos = (pex.photos || []).map((p: any) => ({
+          return (pex.photos || []).map((p: any) => ({
             one: p.src.large ?? p.src.medium,
             two: p.src.large2x ?? p.src.large ?? p.src.medium,
           }));
         } catch {
-          /* nos vamos al fallback */
+          return [];
         }
       }
 
-      if (photos.length === 0) {
-        photos = base.map((b) => {
-          const seedStr = `${sport}-${b.gender}-${b.id}`;
-          const svg = `https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${encodeURIComponent(
-            seedStr
-          )}&radius=8&backgroundType=gradientLinear`;
-          return { one: svg, two: svg };
-        });
+      const dicebear = (seedStr: string): PhotoPair => {
+        const svg = `https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${encodeURIComponent(
+          seedStr
+        )}&radius=8&backgroundType=gradientLinear`;
+        return { one: svg, two: svg };
+      };
+
+      let malePhotos: PhotoPair[] = [];
+      let femalePhotos: PhotoPair[] = [];
+
+      if (gender === "male") {
+        malePhotos = await fetchPexels(
+          `${sport} athlete portrait latino male man south american`
+        );
+      } else if (gender === "female") {
+        femalePhotos = await fetchPexels(
+          `${sport} athlete portrait latina female woman south american`
+        );
+      } else {
+        [malePhotos, femalePhotos] = await Promise.all([
+          fetchPexels(
+            `${sport} athlete portrait latino male man south american`
+          ),
+          fetchPexels(
+            `${sport} athlete portrait latina female woman south american`
+          ),
+        ]);
       }
 
-      /* ---------- C) Merge ---------- */
-      const merged: AthletePerson[] = base.map((b, i) => ({
-        name: b.name,
-        country: b.country,
-        gender: b.gender,
-        photo: photos[i % photos.length].one,
-        photo2x: photos[i % photos.length].two,
-      }));
+      if (malePhotos.length === 0) {
+        malePhotos = base.map((b) => dicebear(`male-${sport}-${b.id}`));
+      }
+      if (femalePhotos.length === 0) {
+        femalePhotos = base.map((b) => dicebear(`female-${sport}-${b.id}`));
+      }
+
+      const merged: AthletePerson[] = base.map((b) => {
+        const pool = b.gender === "female" ? femalePhotos : malePhotos;
+        const idx = hashIdx(`${b.id}-${sport}`, pool.length); // <-- fija y por género
+        return {
+          name: b.name,
+          country: b.country,
+          gender: b.gender,
+          photo: pool[idx].one,
+          photo2x: pool[idx].two,
+        };
+      });
 
       if (!cancelled) {
         setData(merged);

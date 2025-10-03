@@ -11,7 +11,7 @@ const navLinks: NavLinkType[] = [
   { label: "Inicio", to: "/" },
   { label: "Sobre Nosotros", to: "/sobre_nosotros" },
   { label: "Servicios", to: "/servicios" },
-  { label: "Exposición de Talento", to: "/exposición_de_talento" },
+  { label: "Exposición de Talento", to: "/expo_de_talento" },
   { label: "Explorar Atletas", to: "/explorar_atletas" },
   { label: "Recursos", to: "/recursos" },
 ];
@@ -26,7 +26,7 @@ const NavMenu: React.FC = () => (
             className={({ isActive }) =>
               isActive ? `${styles.linkActive} navTypo` : "navTypo"
             }
-            end={link.to === "/Athletain"}
+            end={link.to === "/"}
           >
             {link.label}
           </NavLink>

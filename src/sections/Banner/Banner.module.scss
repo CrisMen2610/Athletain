@@ -29,6 +29,13 @@
   }
 }
 
+.talent_gallery_banner {
+  width: 100%;
+  &_description {
+    width: 40rem;
+  }
+}
+
 .aboutUs_banner {
   width: 100%;
   &_description {
@@ -48,5 +55,12 @@
   position: absolute;
   right: 0rem;
   top: -2rem;
+  width: 45rem;
+}
+
+.talent_gallery_image {
+  position: absolute;
+  right: 0rem;
+  top: 1rem;
   width: 45rem;
 }

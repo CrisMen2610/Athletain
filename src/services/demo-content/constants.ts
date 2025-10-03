@@ -5,6 +5,21 @@ import hero2 from "@assets/imgs/aboutUs/hero2.webp";
 import cta_bg from "@assets/imgs/home/cta-bg.webp";
 import cta_bg2 from "@assets/imgs/aboutUs/ctaBg2.webp";
 import banner2 from "@assets/imgs/aboutUs/banner2.webp";
+import banner_talent from "@assets/imgs/talentGallery/banner_talent.webp";
+
+export enum PAGES {
+  HOME = "home",
+  ABOUT_US = "about-us",
+  TALENT_GALLERY = "talent-gallery",
+}
+
+export enum USER_ROLES {
+  TENNIS = "Tenista Profesional",
+  SOCCER = "Futbolista Profesional",
+  BASKETBALL = "Baloncestista Profesional",
+  SWIMMING = "Nadador(a) Profesional",
+  ATHLETICS = "Atleta Profesional",
+}
 
 export const HOME_CONTENTS: homeContent = {
   Home: {
@@ -103,7 +118,16 @@ export const ABOUT_US_CONTENTS: aboutUsContent = {
   },
 };
 
-export enum PAGES {
-  HOME = "home",
-  ABOUT_US = "about-us",
-}
+export const TALENT_GALLERY_CONTENTS: any = {
+  TalentGallery: {
+    banner: {
+      title: "Haz que el mundo vea",
+      subtitle: "tu talento",
+      description:
+        "Crea tu perfil, comparte tus videos y llega a clubes, agentes y organizaciones deportivas que buscan atletas como tú.",
+      buttonText: "REGÍSTRATE COMO ATLETA",
+      bgImage: banner_talent,
+      type: PAGES.TALENT_GALLERY,
+    },
+  },
+};

@@ -71,6 +71,27 @@ export default function Services({ services = SERVICES, type = "home" }) {
           </div>
         </section>
       );
+    case "talent-gallery":
+      return (
+        <section className={s.wrapper} aria-labelledby="services-title">
+          <div className={s.header}>
+            <div className={s.titles}>
+              <h2 id="services-title" className={`light-title`}>
+                ¿Qué es la <strong> Exposición de Talento?</strong>
+              </h2>
+            </div>
+            <p className={`${s.subtitle} body-1-regular`}>
+              En <strong>Athletain</strong> creemos que tu carrera merece
+              visibilidad. Por eso, creamos esta sección donde puedes subir tu
+              perfil deportivo, compartir tus métricas clave y mostrar tu
+              rendimiento real en video.
+              <br /> <br />
+              Tu perfil será revisado por nuestro equipo y podrá ser publicado
+              en nuestra galería de atletas destacados.
+            </p>
+          </div>
+        </section>
+      );
     default:
       return (
         <div>

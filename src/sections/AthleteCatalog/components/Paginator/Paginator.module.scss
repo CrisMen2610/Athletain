@@ -1,0 +1,42 @@
+.wrap {
+  margin: 4rem 0 0;
+  display: grid;
+  grid-template-columns: 36px 1fr 36px;
+  align-items: center;
+  gap: 14px;
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e2e7ee;
+  border-radius: 999px;
+  background: #fff;
+  color: #0d1a2b;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.track {
+  height: 3px;
+  background: #e7ebf2;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.thumb {
+  height: 100%;
+  background: #111827;
+  transform-origin: left center;
+  transition: transform 0.18s ease;
+}
