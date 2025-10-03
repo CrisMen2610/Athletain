@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Athletain/static/css/main.c20aeb91.css",
-    "main.js": "/Athletain/static/js/main.9c4e6a24.js",
+    "main.js": "/Athletain/static/js/main.12a76238.js",
     "static/media/2nd-hero.png": "/Athletain/static/media/2nd-hero.80c0f6475a292bfdb5c6.png",
     "static/media/banner2.webp": "/Athletain/static/media/banner2.142b66d9188f3498b3f4.webp",
     "static/media/karts.png": "/Athletain/static/media/karts.3ec4091e960accd4a842.png",
@@ -16,10 +16,10 @@
     "static/media/icomoon.ttf": "/Athletain/static/media/icomoon.d9a974419160030c4498.ttf",
     "index.html": "/Athletain/index.html",
     "main.c20aeb91.css.map": "/Athletain/static/css/main.c20aeb91.css.map",
-    "main.9c4e6a24.js.map": "/Athletain/static/js/main.9c4e6a24.js.map"
+    "main.12a76238.js.map": "/Athletain/static/js/main.12a76238.js.map"
   },
   "entrypoints": [
     "static/css/main.c20aeb91.css",
-    "static/js/main.9c4e6a24.js"
+    "static/js/main.12a76238.js"
   ]
 }
