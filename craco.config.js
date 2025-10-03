@@ -12,7 +12,8 @@ module.exports = {
           "@layouts": "./layouts",
           "@pages": "./pages",
           "@styles": "./styles",
-          "@assets": "./assets"
+          "@assets": "./assets",
+          '@hooks': './hooks'
         }
       }
     }

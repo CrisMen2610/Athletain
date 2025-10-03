@@ -1,0 +1,71 @@
+.wrapper {
+  position: relative;
+  min-height: 37.5rem;
+  display: grid;
+  align-items: center;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem);
+  isolation: isolate;
+  color: #fff;
+  overflow: hidden;
+}
+
+.center {
+  align-items: center;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2;
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.inner {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text {
+  margin-top: 1.5rem;
+  width: 35.06656rem;
+}
+
+.actions {
+  margin-top: clamp(1rem, 2.2vw, 1.5rem);
+  display: inline-flex;
+  gap: 0.75rem;
+
+  :global(button),
+  :global(a[role="button"]) {
+    /* estilos base opcionales, si no usas lib de UI */
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: #0b0b0d;
+    background: #fff;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+      background 0.15s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  /* variante secundaria */
+  :global(.btn--ghost) {
+    background: transparent !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12) !important;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+.section {
+  background: #fff;
+  color: #0b0b0d;
+  padding: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.header {
+  text-align: center;
+
+  margin: 0 auto clamp(1.5rem, 3vw, 2.2rem);
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.title {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.titleStrong {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin: 0 auto;
+  width: 39.375rem;
+}
+
+.viewport {
+  overflow: hidden;
+}
+.track {
+  display: flex;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+.slide {
+  min-width: 100%;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.grid {
+  margin: 0 auto;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left {
+  margin: 0;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #eee;
+  /* NO aplicar transform: scale() ni filtros que “ablanden” */
+}
+.caption {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.25rem;
+  strong {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-size: clamp(1rem, 1.6vw, 1.1rem);
+  }
+  span {
+    color: #585861;
+    font-size: 0.95rem;
+  }
+}
+
+.cta {
+  margin-top: 0.9rem;
+  display: inline-flex;
+  gap: 0.35rem;
+  min-width: 13rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  background: #27407a;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    background: #1f3566;
+  }
+}
+
+.card {
+  background: #0b0b0d;
+  color: #fff;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  display: grid;
+  height: 92.2%;
+  align-content: start;
+  gap: 0.5rem;
+}
+.person {
+  margin: 0;
+  text-transform: uppercase;
+}
+.stars {
+  font-size: 1.7rem;
+  letter-spacing: 0.25ch;
+}
+.dim {
+  opacity: 0.35;
+}
+.role {
+  color: rgba(255, 255, 255, 0.88);
+}
+.quote {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* NAV inferior tipo mock */
+.nav {
+  margin: clamp(1.25rem, 3vw, 2rem) auto 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  max-width: 720px;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+.arrow {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.25rem 0.35rem;
+  cursor: pointer;
+  color: #0b0b0d;
+  font-size: 20px;
+  line-height: 1;
+
+  .icon {
+    font-size: 20px;
+  }
+  &:hover {
+    color: #111;
+  }
+}
+.progress {
+  height: 4px;
+  background: #e9e9ee;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 0 auto; /* width se controla por prop */
+}
+.progressBar {
+  height: 100%;
+  width: 0%;
+  background: #0b0b0d;
+  transition: width 420ms ease;
+  border-radius: 6px;
+}

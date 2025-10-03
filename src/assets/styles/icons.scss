@@ -1,0 +1,67 @@
+$icon-font-family: "IcoMoon" !default;
+$icon-font-path: "../fonts/icomoon" !default;
+
+@font-face {
+  font-family: $icon-font-family;
+  src: url("#{$icon-font-path}/icomoon.ttf") format("truetype"),
+    url("#{$icon-font-path}/icomoon.svg##icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+%icon-base {
+  font-family: $icon-font-family !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  // Better Font Rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon {
+  @extend %icon-base;
+  display: inline-block;
+}
+
+// Map of icon names to codepoints
+$icons: (
+  laps: "\e900",
+  media_link: "\e901",
+  sports_football: "\e902",
+  videocam: "\e903",
+) !default;
+
+@mixin icon($name) {
+  @extend %icon-base;
+  &:before {
+    content: map-get($icons, $name);
+  }
+}
+
+// Utility classes for each icon
+
+.icon-laps::before {
+  content: "\e900";
+}
+.icon-media_link::before {
+  content: "\e901";
+}
+.icon-sports_football::before {
+  content: "\e902";
+}
+.icon-videocam::before {
+  content: "\e903";
+}
+
+.icon-arrow-left::before {
+  content: "\e904";
+}
+
+.icon-arrow-right::before {
+  content: "\e905";
+}

@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  gap: 2rem;
+  align-self: stretch;
+  width: 100%;
+}
+
+.bgImage {
+  width: 50%;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.text {
+  margin-top: 1.5rem;
+  width: 35.06656rem;
+}
