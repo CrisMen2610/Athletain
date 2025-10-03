@@ -5,9 +5,6 @@ import { HOME_CONTENTS, PAGES } from "services/demo-content/constants";
 import { SERVICES } from "./mocks/home-mocks";
 import CtaSection from "sections/CTASection/CTASection";
 import HeroSection from "sections/hero/HeroSection";
-import TestimonialsSlider, {
-  Testimonial,
-} from "sections/TestimonialSlider/TestimonialSlider";
 import AutoTestimonials from "sections/TestimonialSlider/AutoTestimonials";
 import SmallBanner from "sections/smallBanner/SmallBanner";
 

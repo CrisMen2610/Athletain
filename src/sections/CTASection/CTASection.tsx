@@ -2,16 +2,8 @@ import s from "./ctaSection.module.scss";
 import { CtaProps } from "./models/cta";
 
 export default function CtaSection({ ctaSection }: { ctaSection: CtaProps }) {
-  const {
-    title,
-    text,
-    bgImage,
-    overlay,
-    maxWidth,
-    center,
-    className,
-    children,
-  } = ctaSection;
+  const { title, text, bgImage, maxWidth, center, className, children } =
+    ctaSection;
 
   return (
     <section
