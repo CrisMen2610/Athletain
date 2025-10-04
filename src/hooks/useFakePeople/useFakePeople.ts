@@ -158,13 +158,9 @@ const LAST_PT = [
 ];
 
 const CRA_PEXELS_KEY: string | undefined = process.env.REACT_APP_PEXELS_KEY;
-// Vite opcional
-const VITE_PEXELS_KEY: string | undefined =
-  (typeof import.meta !== "undefined" &&
-    (import.meta as any).env?.VITE_PEXELS_KEY) ||
-  undefined;
+
 const resolvePexelsKey = (explicit?: string) =>
-  explicit || CRA_PEXELS_KEY || VITE_PEXELS_KEY || "";
+  explicit || CRA_PEXELS_KEY || "";
 
 export function useAthletePeople(opts: Opts = {}) {
   const {

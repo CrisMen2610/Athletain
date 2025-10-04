@@ -44,10 +44,8 @@ function shuffle<T>(rng: () => number, arr: T[]) {
 // env keys (Vite/CRA)
 const CRA_PEXELS_KEY: string | undefined = process.env.REACT_APP_PEXELS_KEY;
 
-const VITE_PEXELS_KEY: string | undefined = (import.meta as any)?.env
-  ?.VITE_PEXELS_KEY;
 const resolvePexelsKey = (explicit?: string) =>
-  explicit || VITE_PEXELS_KEY || CRA_PEXELS_KEY || "";
+  explicit || CRA_PEXELS_KEY || "";
 
 // Queries por deporte (verticales y de acción)
 const SPORT_QUERIES: Record<Sport, string[]> = {

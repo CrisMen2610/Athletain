@@ -230,13 +230,9 @@ export function makeProfileExtra(
 
 // Key desde .env (Vite y CRA)
 const CRA_PEXELS_KEY: string | undefined = process.env.REACT_APP_PEXELS_KEY;
-const VITE_PEXELS_KEY: string | undefined =
-  typeof import.meta !== "undefined"
-    ? (import.meta as any).env?.VITE_PEXELS_KEY
-    : undefined;
 
 function resolvePexelsKey(explicit?: string) {
-  return explicit || VITE_PEXELS_KEY || CRA_PEXELS_KEY || "";
+  return explicit || CRA_PEXELS_KEY || "";
 }
 
 function hashIdx(str: string, mod: number) {
