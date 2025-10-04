@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Athletain/static/css/main.572b60fe.css",
-    "main.js": "/Athletain/static/js/main.2969941b.js",
+    "main.css": "/Athletain/static/css/main.ca75d101.css",
+    "main.js": "/Athletain/static/js/main.9d9b0aa0.js",
     "static/media/2nd-hero.png": "/Athletain/static/media/2nd-hero.80c0f6475a292bfdb5c6.png",
     "static/media/banner2.webp": "/Athletain/static/media/banner2.142b66d9188f3498b3f4.webp",
     "static/media/karts.png": "/Athletain/static/media/karts.3ec4091e960accd4a842.png",
@@ -11,17 +11,17 @@
     "static/media/ctaBg2.webp": "/Athletain/static/media/ctaBg2.2301c30c2459a882aced.webp",
     "static/media/smallBanner.webp": "/Athletain/static/media/smallBanner.0fa165a57944ce083d1f.webp",
     "static/media/gallery-banner.webp": "/Athletain/static/media/gallery-banner.860fd8b79d8f37f8a0e2.webp",
+    "static/media/icomoon.svg": "/Athletain/static/media/icomoon.288cb05085a8d4c8d3d1.svg",
     "static/media/alt-logo.svg": "/Athletain/static/media/alt-logo.c5d7193d80a34d932cd9243da6601f01.svg",
     "static/media/athletain_logo.svg": "/Athletain/static/media/athletain_logo.7ac83a2618297531922412a02ba58178.svg",
-    "static/media/icomoon.svg": "/Athletain/static/media/icomoon.c89b3a8a6cad8c9c8b9d.svg",
+    "static/media/icomoon.ttf": "/Athletain/static/media/icomoon.fe6a4ce8689615dcc5cf.ttf",
     "static/media/sports-icon.svg": "/Athletain/static/media/sports-icon.57f3dba041283ca96c7c8cce22f1846e.svg",
-    "static/media/icomoon.ttf": "/Athletain/static/media/icomoon.d9a974419160030c4498.ttf",
     "index.html": "/Athletain/index.html",
-    "main.572b60fe.css.map": "/Athletain/static/css/main.572b60fe.css.map",
-    "main.2969941b.js.map": "/Athletain/static/js/main.2969941b.js.map"
+    "main.ca75d101.css.map": "/Athletain/static/css/main.ca75d101.css.map",
+    "main.9d9b0aa0.js.map": "/Athletain/static/js/main.9d9b0aa0.js.map"
   },
   "entrypoints": [
-    "static/css/main.572b60fe.css",
-    "static/js/main.2969941b.js"
+    "static/css/main.ca75d101.css",
+    "static/js/main.9d9b0aa0.js"
   ]
 }
