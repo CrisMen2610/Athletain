@@ -738,3 +738,219 @@ export function makeAchievements(
   items.sort((a, b) => b.year - a.year);
   return items.slice(0, count);
 }
+
+// ─────────── HISTORIAL DE PROGRESO ───────────
+export type ProgressEntry = {
+  year: number;
+  title: string;
+  detail: string;
+};
+
+const CLUBS = [
+  "Club Deportivo Valle Verde",
+  "Academia Alto Rendimiento",
+  "Centro Olímpico Municipal",
+  "Club Atlético Unión",
+  "Academia ProSport",
+  "Club Deportivo Horizonte",
+];
+
+function ri(rng: () => number, a: number, b: number) {
+  return Math.floor(a + rng() * (b - a + 1));
+}
+
+export function makeProgressHistory(
+  person: AthletePerson,
+  sport: Sport,
+  seed = "athlete-history-2025"
+): ProgressEntry[] {
+  const [a, b, c, d] = cyrb128(
+    `${seed}|${sport}|${person.name}|${person.country}|${person.gender}`
+  );
+  const rng = mulberry32(a ^ b ^ c ^ d);
+
+  const now = new Date().getFullYear();
+  const start = now - 6; // 7 años
+  const club = CLUBS[ri(rng, 0, CLUBS.length - 1)];
+  const region = REGIONS[ri(rng, 0, REGIONS.length - 1)];
+
+  const bySport = {
+    tennis: (y: number, i: number): ProgressEntry => {
+      const cat = ["Sub-12", "Sub-14", "Sub-16", "Sub-18"][ri(rng, 0, 3)];
+      const items: ProgressEntry[] = [
+        {
+          year: y,
+          title: `Inicio en la escuela de tenis (${club})`,
+          detail:
+            "Participación en torneos internos y primeros entrenamientos formales.",
+        },
+        {
+          year: y + 1,
+          title: "Primer torneo intercolegial",
+          detail: "Entrenamiento con enfoque técnico (drive, revés y saque).",
+        },
+        {
+          year: y + 2,
+          title: `Ingreso al ranking departamental ${cat}`,
+          detail:
+            "Inicio de preparación física paralela (resistencia y flexibilidad).",
+        },
+        {
+          year: y + 3,
+          title: "Primer podio en torneo regional",
+          detail: "Trabajo de fortaleza mental con psicólogo deportivo.",
+        },
+        {
+          year: y + 4,
+          title: `Campeón Torneo Nacional Juvenil — Categoría ${cat}`,
+          detail:
+            "Entrenamientos específicos en cancha dura y polvo de ladrillo.",
+        },
+        {
+          year: y + 5,
+          title: "Participación en primer torneo internacional (ITF J5)",
+          detail:
+            "Mejor ranking nacional alcanzado; fortalecimiento del juego ofensivo.",
+        },
+        {
+          year: y + 6,
+          title: "Preparación para competencias internacionales",
+          detail: "Evaluación biomecánica y cambios técnicos en el servicio.",
+        },
+      ];
+      return items[i];
+    },
+    soccer: (y: number, i: number): ProgressEntry => {
+      const pos = ["Lateral", "Mediocampista", "Extremo", "Delantero"][
+        ri(rng, 0, 3)
+      ];
+      const items: ProgressEntry[] = [
+        {
+          year: y,
+          title: `Ingreso a escuela de fútbol (${club})`,
+          detail: "Fundamentos técnicos y participación en ligas internas.",
+        },
+        {
+          year: y + 1,
+          title: "Debut en liga intercolegial",
+          detail: `Entrenamiento por posiciones (${pos}) y trabajo en coordinación.`,
+        },
+        {
+          year: y + 2,
+          title: "Convocatoria a selección regional",
+          detail: "Plan de fuerza y prevención de lesiones.",
+        },
+        {
+          year: y + 3,
+          title: `Subcampeón Copa ${region}`,
+          detail:
+            "Primer microciclo de alto rendimiento (GPS y análisis de carga).",
+        },
+        {
+          year: y + 4,
+          title: "Debut en torneo nacional juvenil",
+          detail: "Mejora en finalización y juego sin balón.",
+        },
+        {
+          year: y + 5,
+          title: "Goleador del torneo regional",
+          detail: "Trabajo específico de velocidad y potencia.",
+        },
+        {
+          year: y + 6,
+          title: "Pruebas en club profesional",
+          detail: "Entrenamientos tácticos avanzados y videoanálisis.",
+        },
+      ];
+      return items[i];
+    },
+    basketball: (y: number, i: number): ProgressEntry => {
+      const items: ProgressEntry[] = [
+        {
+          year: y,
+          title: `Ingreso a escuela de básquet (${club})`,
+          detail: "Fundamentos de drible y tiro; primeros amistosos.",
+        },
+        {
+          year: y + 1,
+          title: "Liga intercolegial — primer quinteto",
+          detail: "Enfoque en defensa perimetral y transiciones.",
+        },
+        {
+          year: y + 2,
+          title: "Selección regional U-17",
+          detail: "Plan de fuerza/hipertrofia y técnica de salto.",
+        },
+        {
+          year: y + 3,
+          title: `Subcampeón Liga ${region}`,
+          detail: "Inicio de trabajo de lectura de pick and roll.",
+        },
+        {
+          year: y + 4,
+          title: "Campeón nacional juvenil",
+          detail: "MVP del torneo; plan de tiro exterior de alto volumen.",
+        },
+        {
+          year: y + 5,
+          title: "Debut en torneo internacional escolar",
+          detail: "Mejora en spacing y rebote ofensivo.",
+        },
+        {
+          year: y + 6,
+          title: "Ingreso a programa élite",
+          detail: "Monitoreo con GPS y test de potencia (CMJ).",
+        },
+      ];
+      return items[i];
+    },
+    swimming: (y: number, i: number): ProgressEntry => {
+      const style = ["Libre", "Mariposa", "Pecho", "Espalda"][ri(rng, 0, 3)];
+      const dist = ["50 m", "100 m", "200 m"][ri(rng, 0, 2)];
+      const items: ProgressEntry[] = [
+        {
+          year: y,
+          title: `Ingreso a equipo de natación (${club})`,
+          detail: "Técnica de nado y primeros festivales federados.",
+        },
+        {
+          year: y + 1,
+          title: "Primer campeonato regional",
+          detail: `Clasificación a finales en ${style} ${dist}.`,
+        },
+        {
+          year: y + 2,
+          title: "Podio regional",
+          detail: "Trabajo específico de virajes y salidas.",
+        },
+        {
+          year: y + 3,
+          title: "Finalista nacional juvenil",
+          detail: "Plan de resistencia aeróbica y ritmo negativo.",
+        },
+        {
+          year: y + 4,
+          title: "Récord del club",
+          detail: `${style} ${dist}; control de cargas y pulso en series clave.`,
+        },
+        {
+          year: y + 5,
+          title: "Debut en Open internacional",
+          detail: "Entrenamiento por pulsos y técnica subacuática.",
+        },
+        {
+          year: y + 6,
+          title: "Programa de alto rendimiento",
+          detail: "Monitoreo de lactato y fuerza específica en gimnasio.",
+        },
+      ];
+      return items[i];
+    },
+  } as const;
+
+  const picker = bySport[sport];
+  const entries: ProgressEntry[] = Array.from({ length: 7 }, (_, i) =>
+    picker(start, i)
+  );
+  return entries;
+}

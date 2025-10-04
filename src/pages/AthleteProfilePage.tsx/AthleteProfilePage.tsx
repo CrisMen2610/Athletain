@@ -13,6 +13,7 @@ import SportGallerySlider from "./components/SportGallerySlider/SportGallerySlid
 import StatsPerformanceSection from "./components/statsPerformanceSection/StatsPerformanceSection";
 import ProfileSubmenu from "./components/ProfileSubmenu/ProfileSubmenu";
 import HighlightsSection from "./components/HighlightSection/HighlightsSection";
+import HistoryProgressSection from "./components/HistoryProgressSection/HistoryProgressSection";
 
 type LocationState = { person: AthletePerson; sport: Sport };
 
@@ -65,7 +66,7 @@ export default function AthleteProfilePage() {
         <HighlightsSection person={person} sport={sport} />
       )}
       {tab === "history" && (
-        <div style={{ padding: "24px 20px" }}>Historia — próximamente</div>
+        <HistoryProgressSection person={person} sport={sport} />
       )}
       {tab === "health" && (
         <div style={{ padding: "24px 20px" }}>
