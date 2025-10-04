@@ -1,0 +1,102 @@
+.section {
+  background: #0b1016;
+  color: #e9eef6;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.head {
+  max-width: 1180px;
+  margin: 4rem auto;
+  padding: 26px 20px 18px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: end;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.title {
+  margin: 0;
+  line-height: 1.02;
+  span {
+    display: block;
+    color: #cfd8e6;
+  }
+  strong {
+    display: block;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    letter-spacing: 0.03em;
+  }
+}
+
+.copy {
+  align-self: center;
+  strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+}
+
+/* Grid de tarjetas con líneas divisorias */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 2rem;
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  min-height: 170px;
+  padding: 26px 22px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:nth-child(4n) {
+    border-right: 0;
+  }
+  @media (max-width: 1000px) {
+    &:nth-child(2n) {
+      border-right: 0;
+    }
+  }
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #e6ecff;
+  margin-bottom: 10px;
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.text {
+  margin: 0;
+  color: #dde5f3;
+  max-width: 26ch;
+  line-height: 1.5;
+}

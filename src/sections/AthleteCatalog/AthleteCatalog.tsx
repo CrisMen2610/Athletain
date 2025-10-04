@@ -71,6 +71,7 @@ export default function AthletesCatalog() {
                 role={
                   USER_ROLES[sport.toUpperCase() as keyof typeof USER_ROLES]
                 }
+                sport={sport as "tennis" | "soccer" | "basketball" | "swimming"}
               />
             ))}
           </div>

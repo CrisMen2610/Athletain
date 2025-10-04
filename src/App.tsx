@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Footer from "./layouts/footer/Footer";
 import AboutUs from "@pages/about-us/About-Us";
 import TalentGallery from "@pages/talent-gallery/Talent-gallery";
+import AthleteProfilePage from "@pages/AthleteProfilePage.tsx/AthleteProfilePage";
 
 const App: React.FC = () => (
   <HashRouter>
@@ -13,6 +14,8 @@ const App: React.FC = () => (
       <Route path="/" element={<Home />} />
       <Route path="/sobre_nosotros" element={<AboutUs />} />
       <Route path="/expo_de_talento" element={<TalentGallery />} />
+      <Route path="/perfil/:slug" element={<AthleteProfilePage />} />
+
       <Route path="*" element={<div>Página no encontrada</div>} />
     </Routes>
     <Footer />
